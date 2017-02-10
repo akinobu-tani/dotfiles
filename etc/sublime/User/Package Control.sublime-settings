@@ -1,0 +1,23 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+		"BracketHighlighter",
+		"INI",
+		"LineEndings"
+	],
+	"installed_packages":
+	[
+		"BracketHighlighter",
+		"Case Conversion",
+		"ConvertToUTF8",
+		"Dotfiles Syntax Highlighting",
+		"IMESupport",
+		"INI",
+		"LineEndings",
+		"Package Control",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"Theme - Phoenix"
+	]
+}
