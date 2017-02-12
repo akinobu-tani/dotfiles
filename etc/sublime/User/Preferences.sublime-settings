@@ -7,10 +7,6 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"BracketHighlighter",
-		"INI",
-		"LineEndings",
-		"Vintage"
 	],
 	"phoenix_color_expanded_folder": true,
 	"phoenix_color_green": true,

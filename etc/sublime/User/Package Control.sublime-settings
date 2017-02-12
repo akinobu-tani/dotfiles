@@ -2,9 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"BracketHighlighter",
-		"INI",
-		"LineEndings"
 	],
 	"installed_packages":
 	[
@@ -14,7 +11,6 @@
 		"Dotfiles Syntax Highlighting",
 		"IMESupport",
 		"INI",
-		"LineEndings",
 		"Package Control",
 		"Pretty JSON",
 		"SideBarEnhancements",
