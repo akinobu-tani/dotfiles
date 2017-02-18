@@ -1,3 +1,6 @@
-/User/encoding_cache.json
-/User/Package Control.last-run
-/User/Package Control.cache/*
+encoding_cache.json
+Package Control.last-run
+Package Control.cache/
+Package Control.user-ca-bundle
+Package Control.merged-ca-bundle
+oscrypto-ca-bundle.crt

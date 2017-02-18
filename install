@@ -15,13 +15,25 @@ usage() {
 Usage:
   $name [arguments] [command]
 Commands:
-  deploy
-  initialize
+  init
 Arguments:
   -f $(tput setaf 1)** warning **$(tput sgr0) Overwrite dotfiles.
   -h Print help (this message)
 EOF
   exit 1
+}
+
+checkOS() {
+  if [ "$(uname)" == 'Darwin' ]; then
+    OS='Mac'
+  elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+    OS='Linux'
+  elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then
+    OS='Cygwin'
+  else
+    echo "Your platform ($(uname -a)) is not supported."
+    exit 1
+  fi
 }
 
 while getopts :f:h opt; do
@@ -66,13 +78,53 @@ link_files() {
   for f in ${FILES_TO_SYMLINK[@]}; do
     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
   done
+
+  if [ "${OS}" == 'Mac' ]; then
+    rm -rf "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+    ln -snfv "${DOT_DIRECTORY}/etc/sublime/mac/User" "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+  fi
+
+  echo "$(tput setaf 2)Deploy dotfiles complete!.$(tput sgr0)"
+}
+
+FILES_TO_SYMLINK=(
+
+  '.bash_profile'
+  '.bashrc'
+  '.gitconfig'
+  'etc'
+
+)
+
+FILES_TO_SYMLINK_MAC=(
+
+  '.gitconfig'
+
+)
+
+link_files() {
+  cd ${DOT_DIRECTORY}
+  for f in ${FILES_TO_SYMLINK[@]}; do
+    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+  done
+
+  if [ "${OS}" == 'Mac' ]; then
+    for f in ${FILES_TO_SYMLINK_MAC[@]}; do
+      ln -snfv ${DOT_DIRECTORY}/mac/${f} ${HOME}/${f}
+    done
+
+    rm -rf "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+    ln -snfv "${DOT_DIRECTORY}/etc/sublime/mac/User" "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+  fi
+
   echo "$(tput setaf 2)Deploy dotfiles complete!.$(tput sgr0)"
 }
 
 # initialize() {
-#   bash $(DOT_DIRECTORY)/etc/init/init.sh
+#   bash $(DOT_DIRECTORY)/init/init.sh
 # }
 
+checkOS
 link_files
 
 command=$1
