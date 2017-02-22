@@ -9,10 +9,16 @@
 		"Case Conversion",
 		"ConvertToUTF8",
 		"Dotfiles Syntax Highlighting",
+		"Emmet",
+		"Emmet Css Snippets",
 		"IMESupport",
 		"INI",
 		"Package Control",
 		"Pretty JSON",
+		"Sass",
+		"SASS Snippets",
+		"SCSS",
+		"SCSS Snippets",
 		"SideBarEnhancements",
 		"Theme - Phoenix"
 	]
