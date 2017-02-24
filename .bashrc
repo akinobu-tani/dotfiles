@@ -29,8 +29,8 @@ elif [ "${OS}" == 'Mac' ]; then
   alias lla='ls -laG'
 fi
 
-source ~/etc/git/.git-completion.bash
-source ~/etc/git/.git-prompt.sh
+source ~/.modules/git/.git-completion.bash
+source ~/.modules/git/.git-prompt.sh
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1

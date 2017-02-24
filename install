@@ -80,18 +80,24 @@ FILES_TO_SYMLINK_MAC=(
 )
 
 link_files() {
-  cd ${DOT_DIRECTORY}
-  for f in ${FILES_TO_SYMLINK[@]}; do
-    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+  for file_path in ${DOT_DIRECTORY}/.??*; do
+    file_name=`basename ${file_path}`
+
+    [[ ${file_name} = ".git" ]] && continue
+    [[ ${file_name} = ".gitignore" ]] && continue
+
+    ln -snfv ${file_path} ${HOME}/${file_name}
   done
 
   if [ "${OS}" == 'Mac' ]; then
-    for f in ${FILES_TO_SYMLINK_MAC[@]}; do
-      ln -snfv ${DOT_DIRECTORY}/mac/${f} ${HOME}/${f}
+    for file_path in ${DOT_DIRECTORY}/mac/.??*; do
+      file_name=`basename ${file_path}`
+
+      ln -snfv ${file_path} ${HOME}/${file_name}
     done
 
     rm -rf "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
-    ln -snfv "${DOT_DIRECTORY}/vendor/sublime/mac/User" "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+    ln -snfv "${DOT_DIRECTORY}/etc/sublime/mac/User" "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
   fi
 
   echo "$(tput setaf 2)Deploy dotfiles complete!.$(tput sgr0)"
