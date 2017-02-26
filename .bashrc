@@ -29,6 +29,8 @@ elif [ "${OS}" == 'Mac' ]; then
   alias lla='ls -laG'
 fi
 
+alias bundle-install-first='bundle install --path vendor/bundle --binstubs .bundle/bin'
+
 source ~/.modules/git/.git-completion.bash
 source ~/.modules/git/.git-prompt.sh
 

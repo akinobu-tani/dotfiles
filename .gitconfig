@@ -3,9 +3,12 @@
     email = akinobu.x.tani@gmail.com
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    difst = diff --cached
 [core]
     autocrlf = input
 [push]
     default = simple
 [rebase]
     autostash = true
+[color]
+    ui = true
