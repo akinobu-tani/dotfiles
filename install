@@ -64,21 +64,6 @@ if [ -n "${OVERWRITE}" -o ! -d ${DOT_DIRECTORY} ]; then
   echo "$(tput setaf 2)Download dotfiles complete!.$(tput sgr0)"
 fi
 
-FILES_TO_SYMLINK=(
-
-  '.bash_profile'
-  '.bashrc'
-  '.gitconfig'
-  'etc'
-
-)
-
-FILES_TO_SYMLINK_MAC=(
-
-  '.gitconfig'
-
-)
-
 link_files() {
   for file_path in ${DOT_DIRECTORY}/.??*; do
     file_name=`basename ${file_path}`
