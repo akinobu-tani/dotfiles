@@ -8,6 +8,7 @@ fi
 # User specific environment and startup programs
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
+PATH="./node_modules/.bin:$PATH"
 
 export PATH
 
