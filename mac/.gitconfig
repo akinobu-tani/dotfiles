@@ -1,10 +1,11 @@
 [user]
-    name = Akinobu Tani
-    email = akinobu.x.tani@gmail.com
+	name = Akinobu Tani
+	email = akinobu.x.tani@gmail.com
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [core]
     autocrlf = input
+	excludesfile = /Users/admin/.gitignore_global
 [push]
     default = simple
 [rebase]
@@ -15,3 +16,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/admin/.stCommitMsg
