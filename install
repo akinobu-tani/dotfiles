@@ -74,6 +74,8 @@ link_files() {
     ln -snfv ${file_path} ${HOME}/${file_name}
   done
 
+  ln -snfv ${DOT_DIRECTORY}/bin ${HOME}/bin
+
   if [ "${OS}" == 'Mac' ]; then
     for file_path in ${DOT_DIRECTORY}/mac/.??*; do
       file_name=`basename ${file_path}`
