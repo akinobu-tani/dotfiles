@@ -2,12 +2,32 @@
 set -e
 
 DOT_DIRECTORY="${HOME}/dotfiles"
-DOT_TARBALL="https://github.com/akinobu-tani/dotfiles/tarball/master"
-REMOTE_URL="git@github.com:akinobu-tani/dotfiles.git"
 
 has() {
   type "$1" > /dev/null 2>&1
 }
+
+checkOS() {
+  if [ "$(uname)" == 'Darwin' ]; then
+    OS='Mac'
+  elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+    OS='Linux'
+  elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then
+    OS='Cygwin'
+  else
+    echo "Your platform ($(uname -a)) is not supported."
+    exit 1
+  fi
+}
+
+checkOS
+
+if [ "$(basename ${BASH_SOURCE:-$0})" = "include.sh" ]; then
+  return
+fi
+
+DOT_TARBALL="https://github.com/akinobu-tani/dotfiles/tarball/master"
+REMOTE_URL="git@github.com:akinobu-tani/dotfiles.git"
 
 usage() {
   name=`basename $0`
@@ -23,17 +43,38 @@ EOF
   exit 1
 }
 
-checkOS() {
-  if [ "$(uname)" == 'Darwin' ]; then
-    OS='Mac'
-  elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    OS='Linux'
-  elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then
-    OS='Cygwin'
-  else
-    echo "Your platform ($(uname -a)) is not supported."
-    exit 1
+link_files() {
+  for file_path in ${DOT_DIRECTORY}/.??*; do
+    file_name=`basename ${file_path}`
+
+    [[ ${file_name} = ".git" ]] && continue
+    [[ ${file_name} = ".gitignore" ]] && continue
+
+    ln -snfv ${file_path} ${HOME}/${file_name}
+  done
+
+  ln -snfv ${DOT_DIRECTORY}/bin ${HOME}/bin
+
+  if [ "${OS}" == 'Mac' ]; then
+    for file_path in ${DOT_DIRECTORY}/mac/.??*; do
+      file_name=`basename ${file_path}`
+
+      ln -snfv ${file_path} ${HOME}/${file_name}
+    done
+
+    rm -rf "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
+    ln -snfv "${DOT_DIRECTORY}/etc/sublime/mac/User" "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
   fi
+
+  echo "$(tput setaf 2)Deploy dotfiles complete!.$(tput sgr0)"
+}
+
+initialize() {
+  echo "Initializeing dotfiles..."
+
+  bash ${DOT_DIRECTORY}/etc/init/init.sh
+
+  echo "Initializeing Finish !!"
 }
 
 while getopts :f:h opt; do
@@ -64,37 +105,6 @@ if [ -n "${OVERWRITE}" -o ! -d ${DOT_DIRECTORY} ]; then
   echo "$(tput setaf 2)Download dotfiles complete!.$(tput sgr0)"
 fi
 
-link_files() {
-  for file_path in ${DOT_DIRECTORY}/.??*; do
-    file_name=`basename ${file_path}`
-
-    [[ ${file_name} = ".git" ]] && continue
-    [[ ${file_name} = ".gitignore" ]] && continue
-
-    ln -snfv ${file_path} ${HOME}/${file_name}
-  done
-
-  ln -snfv ${DOT_DIRECTORY}/bin ${HOME}/bin
-
-  if [ "${OS}" == 'Mac' ]; then
-    for file_path in ${DOT_DIRECTORY}/mac/.??*; do
-      file_name=`basename ${file_path}`
-
-      ln -snfv ${file_path} ${HOME}/${file_name}
-    done
-
-    rm -rf "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
-    ln -snfv "${DOT_DIRECTORY}/etc/sublime/mac/User" "${HOME}/Library/Application Support/Sublime Text 3/Packages/User"
-  fi
-
-  echo "$(tput setaf 2)Deploy dotfiles complete!.$(tput sgr0)"
-}
-
-# initialize() {
-#   bash $(DOT_DIRECTORY)/init/init.sh
-# }
-
-checkOS
 link_files
 
 command=$1
@@ -102,7 +112,7 @@ command=$1
 
 case $command in
   init*)
-    # initialize
+    initialize
     ;;
   *)
     ;;
