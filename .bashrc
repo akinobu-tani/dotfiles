@@ -31,6 +31,10 @@ fi
 
 alias bundle-install-first='bundle install --path vendor/bundle --binstubs .bundle/bin'
 
+if [ -f ~/.bashrc.local ]; then
+  . ~/.bashrc.local
+fi
+
 source ~/.modules/git/.git-completion.bash
 source ~/.modules/git/.git-prompt.sh
 
