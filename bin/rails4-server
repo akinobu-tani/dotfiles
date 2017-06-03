@@ -10,7 +10,7 @@ case "$1" in
         then
             echo "$PIDFILE exists, process is already running or crashed"
         else
-            bundle exec rails server --binding 0.0.0.0 --daemon
+            bundle exec rails server --bind 0.0.0.0 --daemon
         fi
         ;;
     stop)
