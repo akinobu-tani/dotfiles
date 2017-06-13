@@ -13,6 +13,7 @@
 		"Emmet Css Snippets",
 		"IMESupport",
 		"INI",
+		"Kotlin",
 		"Package Control",
 		"Pretty JSON",
 		"Sass",
@@ -21,6 +22,7 @@
 		"SCSS Snippets",
 		"SideBarEnhancements",
 		"Terraform",
-		"Theme - Phoenix"
+		"Theme - Phoenix",
+		"TypeScript"
 	]
 }
