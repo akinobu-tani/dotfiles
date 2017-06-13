@@ -8,7 +8,6 @@ fi
 # User specific environment and startup programs
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
-PATH="./node_modules/.bin:$PATH"
 PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 
 export PATH
@@ -28,3 +27,5 @@ if [ -d "$HOME/.nvm" ]; then
   [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 fi
 # END ANSIBLE NVM BLOCK
+
+PATH="./node_modules/.bin:$PATH"
