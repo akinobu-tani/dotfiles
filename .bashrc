@@ -21,6 +21,7 @@ checkOS() {
 
 checkOS
 
+# ls
 if [ "${OS}" == 'Linux' ]; then
   alias lla='ls -la'
 elif [ "${OS}" == 'Mac' ]; then
@@ -29,7 +30,14 @@ elif [ "${OS}" == 'Mac' ]; then
   alias lla='ls -laG'
 fi
 
+# bundle
 alias bundle-install-first='bundle install --path vendor/bundle --binstubs .bundle/bin'
+alias bi='bundle-install-first'
+
+# docker
+alias docker-rm-exited-all='docker rm $(docker ps -q -f status=exited)'
+docker-exec-bash() { docker exec -it $1 /bin/bash; }
+alias de='docker-exec-bash'
 
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
