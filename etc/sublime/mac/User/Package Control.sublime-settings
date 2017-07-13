@@ -2,7 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"IMESupport"
 	],
 	"installed_packages":
 	[
@@ -13,7 +12,6 @@
 		"Dotfiles Syntax Highlighting",
 		"Emmet",
 		"Emmet Css Snippets",
-		"IMESupport",
 		"INI",
 		"Kotlin",
 		"Package Control",
