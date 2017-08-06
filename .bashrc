@@ -38,6 +38,12 @@ alias bi='bundle-install-first'
 alias docker-rm-exited-all='docker rm $(docker ps -q -f status=exited)'
 docker-exec-bash() { docker exec -it $1 /bin/bash; }
 alias de='docker-exec-bash'
+alias dss='docker-sync start'
+alias dsc='docker-sync clean'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+docker-compose-exec-bash() { docker-compose exec $1 /bin/bash; }
+alias dce='docker-compose-exec-bash'
 
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
