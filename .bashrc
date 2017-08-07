@@ -35,9 +35,11 @@ alias bundle-install-first='bundle install --path vendor/bundle --binstubs .bund
 alias bi='bundle-install-first'
 
 # docker
-alias docker-rm-exited-all='docker rm $(docker ps -q -f status=exited)'
+alias docker-rm-exited-all='docker rm $(docker ps -f status=exited -f status=created -f status=dead -f status=paused -q)'
 docker-exec-bash() { docker exec -it $1 /bin/bash; }
 alias de='docker-exec-bash'
+alias ds='docker ps'
+alias dsa='docker ps -a'
 alias dss='docker-sync start'
 alias dsc='docker-sync clean'
 alias dcu='docker-compose up'
