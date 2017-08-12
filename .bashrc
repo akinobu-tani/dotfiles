@@ -40,6 +40,8 @@ docker-exec-bash() { docker exec -it $1 /bin/bash; }
 alias de='docker-exec-bash'
 alias dp='docker ps'
 alias da='docker ps -a'
+alias ds='docker stats --no-stream $(docker ps --format={{.Names}})'
+alias dst='docker stats $(docker ps --format={{.Names}})'
 alias dss='docker-sync start'
 alias dsc='docker-sync clean'
 alias dcu='docker-compose up'
