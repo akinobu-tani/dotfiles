@@ -27,7 +27,7 @@ if [ "${OS}" == 'Linux' ]; then
 elif [ "${OS}" == 'Mac' ]; then
   alias ls='ls -G'
   alias ll='ls -lG'
-  alias lla='ls -laG'
+  alias la='ls -laG'
 fi
 
 # bundle
@@ -39,13 +39,15 @@ alias docker-rm-exited-all='docker rm $(docker ps -f status=exited -f status=cre
 docker-exec-bash() { docker exec -it $1 /bin/bash; }
 alias de='docker-exec-bash'
 alias dp='docker ps'
-alias dpa='docker ps -a'
+alias da='docker ps -a'
 alias dss='docker-sync start'
 alias dsc='docker-sync clean'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
+alias dcp='docker-compose ps'
 docker-compose-exec-bash() { docker-compose exec $1 /bin/bash; }
-alias dce='docker-compose-exec-bash'
+alias dcb='docker-compose-exec-bash'
+alias dce='docker-compose exec'
 
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
