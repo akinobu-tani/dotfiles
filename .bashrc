@@ -52,6 +52,7 @@ alias dcp='docker-compose ps'
 docker-compose-exec-bash() { docker-compose exec $1 /bin/bash; }
 alias dcb='docker-compose-exec-bash'
 alias dce='docker-compose exec'
+alias dcr='docker-compose run'
 
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
