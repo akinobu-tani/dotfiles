@@ -29,3 +29,16 @@ fi
 # END ANSIBLE NVM BLOCK
 
 PATH="./node_modules/.bin:$PATH"
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then
+  source "$HOME/google-cloud-sdk/path.bash.inc"
+fi
+
+if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then
+  source "$HOME/google-cloud-sdk/completion.bash.inc"
+fi
