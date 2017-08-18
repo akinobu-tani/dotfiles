@@ -7,6 +7,10 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
+brewInstalled() {
+  has brew && brew ls --versions "$1" > /dev/null 2>&1
+}
+
 checkOS() {
   if [ "$(uname)" == 'Darwin' ]; then
     OS='Mac'
