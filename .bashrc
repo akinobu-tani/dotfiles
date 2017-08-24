@@ -30,6 +30,8 @@ elif [ "${OS}" == 'Mac' ]; then
   alias la='ls -laG'
 fi
 
+alias tn='tail -n 1000'
+
 # bundle
 alias bundle-install-first='bundle install --path vendor/bundle --binstubs .bundle/bin'
 alias bi='bundle-install-first'
