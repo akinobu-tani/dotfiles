@@ -58,6 +58,8 @@ alias dcr='docker-compose run'
 alias docker-ssh-agent-start='docker run -u 1001 -d -v ssh:/ssh --name=ssh-agent whilp/ssh-agent'
 alias docker-ssh-add='docker run -u 1001 --rm -v ssh:/ssh -v $HOME:$HOME -it whilp/ssh-agent ssh-add'
 
+alias terraform='docker run -i -t -v $PWD:/data -v $HOME/.aws:/root/.aws --workdir=/data hashicorp/terraform:light'
+
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
 fi
