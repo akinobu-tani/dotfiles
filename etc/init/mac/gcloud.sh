@@ -11,7 +11,7 @@ if has "gcloud"; then
   exit
 fi
 
-curl https://sdk.cloud.google.com | bash --disable-prompts
+curl https://sdk.cloud.google.com | bash /dev/stdin --disable-prompts
 if ! has "gcloud"; then
     echo "error: gcloud: failed to install"
     exit 1
