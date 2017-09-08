@@ -11,7 +11,7 @@ if has "ansible"; then
   exit
 fi
 
-pip install ansible
+pip2 install ansible
 if ! has "ansible"; then
     echo "error: ansible: failed to install"
     exit 1

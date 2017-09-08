@@ -11,7 +11,7 @@ if has "fab"; then
   exit
 fi
 
-pip install fabric
+pip2 install fabric
 if ! has "fab"; then
     echo "error: fabric: failed to install"
     exit 1
