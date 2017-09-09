@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Babel",
 		"BracketHighlighter",
 		"Case Conversion",
 		"ConvertToUTF8",
@@ -17,6 +18,7 @@
 		"Kotlin",
 		"Package Control",
 		"Pretty JSON",
+		"ReactJS",
 		"Sass",
 		"SASS Snippets",
 		"SCSS",
