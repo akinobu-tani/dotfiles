@@ -57,7 +57,7 @@ alias dce='docker-compose exec'
 alias dcr='docker-compose run --rm'
 alias docker-ssh-agent-start='docker run -u 1001 -d -v ssh:/ssh --name=ssh-agent whilp/ssh-agent'
 alias docker-ssh-add='docker run -u 1001 --rm -v ssh:/ssh -v $HOME:$HOME -it whilp/ssh-agent ssh-add'
-alias docker-portainer-start='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data --name portainer portainer/portainer'
+alias docker-portainer-start='docker run -d --rm -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data --name portainer portainer/portainer'
 
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
