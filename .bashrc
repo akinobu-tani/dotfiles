@@ -57,7 +57,9 @@ alias dce='docker-compose exec'
 alias dcr='docker-compose run --rm'
 alias docker-ssh-agent-start='docker run -u 1001 -d -v ssh:/ssh --name=ssh-agent whilp/ssh-agent'
 alias docker-ssh-add='docker run -u 1001 --rm -v ssh:/ssh -v $HOME:$HOME -it whilp/ssh-agent ssh-add'
-alias docker-portainer-start='docker run -d --rm -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data --name portainer portainer/portainer'
+alias docker-portainer='docker run -d --rm -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data --name portainer portainer/portainer'
+alias docker-adminer='docker run -d --rm -p 8081:8080 --name adminer adminer'
+alias docker-redis-commander='docker run -d --rm -p 8082:8081 --name redis-commander akinobuxtani/redis-commander'
 
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
