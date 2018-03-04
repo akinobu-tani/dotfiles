@@ -61,6 +61,10 @@ alias docker-portainer='docker run -d --rm -p 9000:9000 -v /var/run/docker.sock:
 alias docker-adminer='docker run -d --rm -p 8081:8080 --name adminer adminer'
 alias docker-redis-commander='docker run -d --rm -p 8082:8081 --name redis-commander akinobuxtani/redis-commander'
 
+# android file image
+mount-android() { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
+umount-android() { hdiutil detach /Volumes/android; }
+
 if [ -f ~/.bashrc.local ]; then
   . ~/.bashrc.local
 fi
