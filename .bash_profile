@@ -42,3 +42,6 @@ fi
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then
   source "$HOME/google-cloud-sdk/completion.bash.inc"
 fi
+
+# increase the number of open files
+ulimit -S -n 1024
