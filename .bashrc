@@ -23,7 +23,8 @@ checkOS
 
 # ls
 if [ "${OS}" == 'Linux' ]; then
-  alias lla='ls -la'
+  alias ll='ls -l'
+  alias la='ls -la'
 elif [ "${OS}" == 'Mac' ]; then
   alias ls='ls -G'
   alias ll='ls -lG'
