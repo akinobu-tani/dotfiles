@@ -7,14 +7,14 @@ set -e
 . ${HOME}/dotfiles/etc/include.sh
 
 if has "python2"; then
-  echo "python: already installed"
+  echo "python2: already installed"
   exit
 fi
 
-brew install python
+brew install python@2
 if ! has "python2"; then
-    echo "error: python: failed to install"
+    echo "error: python2: failed to install"
     exit 1
 fi
 
-echo "python: installed successfully"
+echo "python2: installed successfully"
