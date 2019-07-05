@@ -7,6 +7,7 @@
   difst = diff --cached
   merged = !git branch --merged | grep -v master | grep -v '*'
   delete-merged = !git merged | xargs git branch -d
+  merge-unity = mergetool --tool unityyamlmerge
 [core]
   autocrlf = input
 [push]
@@ -19,3 +20,11 @@
 [mergetool "sourcetree"]
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
+[mergetool "unityyamlmerge"]
+  trustExitCode = false
+  cmd = /Applications/Unity/Hub/Editor/2018.4.0f1/Unity.app/Contents/Tools/UnityYAMLMerge merge -p \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
