@@ -22,9 +22,11 @@
   trustExitCode = true
 [mergetool "unityyamlmerge"]
   trustExitCode = false
-  cmd = /Applications/Unity/Hub/Editor/2018.4.0f1/Unity.app/Contents/Tools/UnityYAMLMerge merge -p \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
+  cmd = /Applications/Unity/Hub/Editor/2018.4.6f1/Unity.app/Contents/Tools/UnityYAMLMerge merge -p \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[pr-release]
+  token = 59e5835d57d2adea58065540eb56314e276dfac5
