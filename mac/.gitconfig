@@ -30,3 +30,5 @@
 	smudge = git-lfs smudge -- %f
 [pr-release]
   token = 59e5835d57d2adea58065540eb56314e276dfac5
+[merge]
+	tool = p4merge
