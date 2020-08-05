@@ -9,6 +9,7 @@
     delete-merged = !git merged | xargs git branch -d
 [core]
     autocrlf = input
+    editor = "'F:\Program Files\Sublime Text 3\subl.exe' --new-window --wait"
 [push]
     default = simple
 [rebase]
