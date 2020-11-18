@@ -1,6 +1,6 @@
 [user]
-  name = Akinobu Tani
-  email = akinobu.x.tani@gmail.com
+	name = Akinobu Tani
+	email = akinobu.x.tani@gmail.com
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all
@@ -32,3 +32,5 @@
   token = 59e5835d57d2adea58065540eb56314e276dfac5
 [merge]
 	tool = p4merge
+[pull]
+	rebase = true
