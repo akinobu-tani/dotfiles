@@ -9,6 +9,7 @@ fi
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+PATH=$PATH:$HOME/bin.local
 
 export PATH
 
